@@ -9,8 +9,9 @@ from pathlib import Path
 import cv2
 
 ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "media" / "luna2.mp4"
+SRC = ROOT / "media" / "Luna-white-bg.mp4"
 OUT = ROOT / "public" / "assets" / "frames"
+POSTER = ROOT / "public" / "assets" / "poster.jpg"
 
 COUNT = 240
 WIDTH = 960
@@ -43,6 +44,7 @@ def main() -> int:
 
     wanted_set = set(wanted)
     OUT.mkdir(parents=True, exist_ok=True)
+    POSTER.parent.mkdir(parents=True, exist_ok=True)
 
     for leftover in OUT.glob(f"{PREFIX}*.{EXT}"):
         leftover.unlink()
@@ -52,6 +54,7 @@ def main() -> int:
     saved = 0
     idx = 0
     height = 0
+    poster_written = False
     while saved < len(wanted):
         ok, frame = cap.read()
         if not ok:
@@ -73,6 +76,17 @@ def main() -> int:
                 print(f"failed to write {path}", file=sys.stderr)
                 cap.release()
                 return 1
+            if not poster_written:
+                ok_p = cv2.imwrite(
+                    str(POSTER),
+                    small,
+                    [int(cv2.IMWRITE_JPEG_QUALITY), 88],
+                )
+                if not ok_p:
+                    print(f"failed to write {POSTER}", file=sys.stderr)
+                    cap.release()
+                    return 1
+                poster_written = True
             saved += 1
         idx += 1
 
@@ -88,6 +102,7 @@ def main() -> int:
         "prefix": PREFIX,
         "ext": EXT,
         "pad": 3,
+        "source": SRC.name,
     }
     (OUT / "manifest.json").write_text(
         json.dumps(manifest, indent=2) + "\n",

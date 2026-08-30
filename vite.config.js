@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 
 function frameCacheHeaders() {
   return {
@@ -24,6 +25,6 @@ function frameCacheHeaders() {
 }
 
 export default defineConfig({
-  plugins: [react(), frameCacheHeaders()],
+  plugins: [react(), tailwindcss(), frameCacheHeaders()],
   server: { port: 5173, host: true },
 });

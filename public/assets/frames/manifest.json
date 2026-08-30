@@ -7,5 +7,6 @@
   "dir": "/assets/frames",
   "prefix": "luna-",
   "ext": "webp",
-  "pad": 3
+  "pad": 3,
+  "source": "Luna-white-bg.mp4"
 }

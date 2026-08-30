@@ -1,4 +1,4 @@
-const CACHE_NAME = 'nazeline-luna-frames-v1';
+const CACHE_NAME = 'nazeline-luna-frames-v2';
 
 export function frameUrl(manifest, index) {
   const n = String(index).padStart(manifest.pad, '0');

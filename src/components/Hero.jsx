@@ -1,17 +1,27 @@
 export default function Hero() {
   return (
-    <section className="hero" aria-label="معرفی">
-      <div className="hero__inner">
-        <div className="hero__eyebrow">— شماره ۰۲</div>
-        <h1 className="hero__title">
-          <span className="serif it">NazeLine</span>
-          <span className="serif">Luna&nbsp;Suit</span>
+    <section
+      className="sticky top-0 z-1 grid min-h-dvh place-items-center bg-canvas bg-hero-wash px-[6vw] pb-[108px] pt-topbar"
+      aria-label="معرفی"
+    >
+      <div className="relative max-w-[920px] text-center">
+        <div className="mb-7 flex items-center justify-center gap-3.5 font-ui text-kicker uppercase tracking-[0.38em] text-ink-faint">
+          <span className="inline-block h-px w-7 bg-ink-faint" aria-hidden="true" />
+          شماره ۰۲
+          <span className="inline-block h-px w-7 bg-ink-faint" aria-hidden="true" />
+        </div>
+        <h1 className="hero-title mb-7 flex flex-col items-center gap-[0.05em] font-display text-hero font-light tracking-[0.01em] text-ink">
+          <span className="serif-it text-ink-soft">NazeLine</span>
+          <span>Luna&nbsp;Suit</span>
         </h1>
-        <p className="hero__sub">
+        <p className="mx-auto max-w-[540px] font-sans text-[clamp(15px,1.4vw,18px)] font-extralight leading-[2] text-ink-soft">
           یک سوت‌سویی مینیمال در رنگ کرم — طراحی‌شده برای لحظه‌هایی که سکوت، بلندترین صدا است.
         </p>
       </div>
-      <div className="hero__cue" aria-hidden="true">
+      <div
+        className="pointer-events-none absolute bottom-[max(28px,env(safe-area-inset-bottom,0px))] left-1/2 z-2 flex animate-cue flex-col items-center gap-3 text-center font-ui text-kicker uppercase tracking-cue text-ink-faint"
+        aria-hidden="true"
+      >
         <span>اسکرول برای دیدن پارچه</span>
         <svg viewBox="0 0 14 24" width="14" height="24">
           <path
@@ -24,10 +34,13 @@ export default function Hero() {
           />
         </svg>
       </div>
-      <div className="hero__rail" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
+      <div
+        className="absolute top-1/2 right-[clamp(16px,3vw,40px)] flex -translate-y-1/2 flex-col gap-3.5"
+        aria-hidden="true"
+      >
+        <span className="block h-9 w-px bg-ink-faint opacity-40" />
+        <span className="block h-9 w-px bg-ink-faint opacity-40" />
+        <span className="block h-9 w-px bg-ink-faint opacity-40" />
       </div>
     </section>
   );
