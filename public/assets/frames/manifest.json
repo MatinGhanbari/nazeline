@@ -1,0 +1,11 @@
+{
+  "count": 240,
+  "duration": 10.0,
+  "fps": 23.9,
+  "width": 960,
+  "height": 540,
+  "dir": "/assets/frames",
+  "prefix": "luna-",
+  "ext": "webp",
+  "pad": 3
+}
