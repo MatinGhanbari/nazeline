@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { loadFramesSequential } from '../lib/loadFrames.js';
+import { asset } from '../lib/asset.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -170,9 +171,12 @@ export function useStage(refs) {
 
     (async () => {
       try {
-        const res = await fetch('/assets/frames/manifest.json', { cache: 'force-cache' });
+        const res = await fetch(asset('assets/frames/manifest.json'), { cache: 'force-cache' });
         if (!res.ok) throw new Error('sequence manifest missing');
         manifest = await res.json();
+        if (manifest.dir?.startsWith('/')) {
+          manifest.dir = asset(manifest.dir.slice(1));
+        }
         if (timeDur) timeDur.textContent = formatTime(manifest.duration);
         canvas.width = manifest.width;
         canvas.height = manifest.height;

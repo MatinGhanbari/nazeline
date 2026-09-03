@@ -7,7 +7,7 @@ function frameCacheHeaders() {
     name: 'frame-cache-headers',
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
-        if (req.url?.startsWith('/assets/frames/')) {
+        if (req.url?.includes('/assets/frames/')) {
           res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
         }
         next();
@@ -15,7 +15,7 @@ function frameCacheHeaders() {
     },
     configurePreviewServer(server) {
       server.middlewares.use((req, res, next) => {
-        if (req.url?.startsWith('/assets/frames/')) {
+        if (req.url?.includes('/assets/frames/')) {
           res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
         }
         next();
@@ -25,6 +25,7 @@ function frameCacheHeaders() {
 }
 
 export default defineConfig({
+  base: process.env.GITHUB_ACTIONS ? '/nazeline/' : '/',
   plugins: [react(), tailwindcss(), frameCacheHeaders()],
   server: { port: 5173, host: true },
 });

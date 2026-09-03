@@ -1,6 +1,7 @@
 {
   "name": "nazeline-luna-react",
   "private": true,
+  "homepage": "https://matinghanbari.github.io/nazeline/",
   "version": "1.0.0",
   "type": "module",
   "scripts": {

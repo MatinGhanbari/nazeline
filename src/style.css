@@ -181,7 +181,7 @@
   overflow: visible;
   width: min(34vw, 460px);
   height: min(78vh, 820px);
-  background: url("/assets/poster.jpg") 50% 16% / cover no-repeat;
+  background: var(--poster-url) 50% 16% / cover no-repeat;
 }
 
 .stage__seq {

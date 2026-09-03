@@ -2,6 +2,8 @@
 
 لندینگ تعاملی مجموعه‌ی **Luna** از برند NazeLine — یک سوت‌سویی مینیمال در رنگ کرم (پاییز / زمستان ۲۰۲۶).
 
+نسخهٔ زنده: [matinghanbari.github.io/nazeline](https://matinghanbari.github.io/nazeline/)
+
 صفحه راست‌چین است و به‌جای ویدیو، با اسکرول یک توالی WebP روی canvas پخش می‌شود.
 
 ## ویژگی‌ها
